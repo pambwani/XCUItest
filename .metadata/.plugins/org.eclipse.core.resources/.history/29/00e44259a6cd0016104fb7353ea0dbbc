@@ -1,0 +1,50 @@
+package com.pack.common.pageobjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import com.pack.base.TestBaseSetup;
+
+public class Login {
+	protected WebDriver driver;
+
+public TestBaseSetup base;
+	
+	public Login(TestBaseSetup base) {
+		this.base = base;
+		
+	}
+	
+
+	WebElement Done = driver.findElement(By.name("Done")) ;
+	WebElement Allow =  driver.findElement(By.name("Allow"));
+
+	
+	public Login(WebDriver driver) {
+		this.driver = driver;
+	}
+
+	public void EnterEmailPassword () { 
+		WebElement Email = base.getElementByXpath("//UIATextField[@value='E-mail']");
+		WebElement Password = base.getElementByXpath("//UIASecureTextField[@value='Password']");
+	    Email.clear();
+	    Email.sendKeys("pambwani+500@mobiquityinc.com");
+	    Password.sendKeys("test@123");
+        
+	   
+	}
+	
+	public void Done () { 
+		
+    base.getElementByName("Done");
+	   
+	}
+	   
+	public void Allow () { 
+		
+	    base.getElementByName("Allow");
+		   
+		}
+		  
+}

@@ -1,0 +1,32 @@
+package com.pack.common.pageobjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class Login {
+	protected WebDriver driver;
+
+	WebElement Email = driver.findElement(By.xpath("//UIATextField[@value='E-mail']")) ;
+	WebElement Password = driver.findElement(By.xpath("//UIASecureTextField[@value='Password']")) ;
+	WebElement Done = driver.findElement(By.name("Log In")) ;
+	WebElement Done = driver.findElement(By.name("Done")) ;
+
+	
+	public Login(WebDriver driver) {
+		this.driver = driver;
+	}
+
+	public void LoginWithUsernamePassword () { 
+	 driver.findElement(By.xpath("//UIATextField[@value='E-mail']")).clear();
+	   driver.findElement(By.xpath("//UIATextField[@value='E-mail']")).sendKeys("pambwani+500@mobiquityinc.com");
+	   driver.findElement(By.xpath("//UIASecureTextField[@value='Password']")).sendKeys("test@123");
+	   driver.findElement(By.name("Done")).click(); 
+	   driver.findElement(By.name("Log In")).click(); 
+	   
+	}
+	   public void Login()
+	   {
+		   
+	   }
+}

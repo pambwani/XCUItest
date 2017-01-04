@@ -1,0 +1,50 @@
+package com.pack.common.tests;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+import com.pack.common.pageobjects.HomePage;
+import com.pack.common.pageobjects.Login;
+
+import com.pack.base.TestBaseSetup;
+
+	public class NovartisHeartPartnerLogin extends TestBaseSetup
+	{
+		private static WebDriver driver = null;
+
+		
+		@BeforeClass
+		public void setUp() {
+			driver=getDriver();
+		}
+		
+		@Test
+		public void login()
+		{   
+			HomePage = new HomePage(driver);
+			   
+			   driver.findElement(By.name("Allow")).click(); 
+			   driver.quit();
+		}
+		
+		
+	public static void main(String args[]) 
+			{
+		
+		HomePage = new HomePage(driver);
+	   
+	}
+
+	
+
+}
+
+
+

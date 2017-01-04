@@ -1,0 +1,60 @@
+package com.pack.base;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class TestBaseSetup {
+
+	private WebDriver driver;
+
+	public WebDriver getDriver() {
+		return driver;
+	}
+	 
+			@BeforeClass
+			public void initializeTestBaseSetup() {
+				try {
+					
+					//Set up desired capabilities and pass the Android app-activity and app-package to Appium
+					DesiredCapabilities capabilities = new DesiredCapabilities();
+					capabilities.setCapability("appium-version", "1.6"); 
+					capabilities.setCapability("platformVersion", "10.2"); 
+					capabilities.setCapability("deviceName","iPhone 6");
+					capabilities.setCapability("platformName","iOS");
+				    capabilities.setCapability("app", "/Users/poojathadani/Library/Developer/Xcode/DerivedData/HeartPartner-dwvraynclxrkdfgtnupvceezmuod/Build/Products/Dev-iphonesimulator/HeartPartner.app");
+				    
+				    // This package name of your app (you can get it from apk info app)
+					capabilities.setCapability("bundleId","com.mobiquityinc.HeartPartnerGT");
+					driver = new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+					driver.manage().timeouts().implicitlyWait( 1, TimeUnit.SECONDS);
+				 
+				} catch (Exception e) {
+					System.out.println("Error....." + e.getStackTrace());
+				}
+			}
+			
+			@Test
+			public  void  ClickElementByName(String elementName)
+			{
+				WebElement element = driver.findElement(By.name(elementName)) ;
+				element.click();
+			}
+			
+			
+			@AfterClass
+			public void tearDown() {	
+				driver.quit();
+			}
+	 
+	 
+}

@@ -1,0 +1,5 @@
+package org.testobject.appium.example;
+
+public class IntegrationApp {
+
+}

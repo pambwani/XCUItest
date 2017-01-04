@@ -1,0 +1,29 @@
+package com.pack.common.pageobjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import com.pack.base.TestBaseSetup;
+
+public class HomePage {
+
+	public TestBaseSetup base;
+	
+	public HomePage(TestBaseSetup base) {
+		this.base = base;
+		
+	}
+
+	public void clickPatient ()
+	{
+		base.getElementByName("I'm a Patient").click();
+	}
+	
+	public void clickLogin ()
+	{
+		base.getElementByName("Log In").click();
+	}
+	
+	
+}

@@ -1,0 +1,26 @@
+package com.pack.common.pageobjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class HomePage {
+
+	public WebDriver driver;
+	
+		
+	
+	public HomePage(WebDriver driver) {
+		this.driver = driver;
+	}
+	
+	public  void  LoginAsPatient()
+	{
+		WebElement Patient = driver.findElement(By.name("I'm a Patient")) ;
+       Patient.click();
+   	WebElement Login = driver.findElement(By.name("Log In")) ;
+
+		Login.click();
+	}
+	
+}

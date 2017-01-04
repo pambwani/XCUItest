@@ -1,0 +1,9 @@
+package com.pack.base;
+
+import org.openqa.selenium.WebDriver;
+
+public class TestBaseSetup {
+
+	 public WebDriver driver;
+
+}

@@ -1,0 +1,23 @@
+package com.pack.base;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+public class TestBaseSetup {
+
+	 public WebDriver driver;
+	 
+	 void setup () 
+	 { 
+	//Set up desired capabilities and pass the Android app-activity and app-package to Appium
+			DesiredCapabilities capabilities = new DesiredCapabilities();
+			capabilities.setCapability("appium-version", "1.6"); 
+			capabilities.setCapability("platformVersion", "10.2"); 
+			capabilities.setCapability("deviceName","iPhone 6");
+			capabilities.setCapability("platformName","iOS");
+		    capabilities.setCapability("app", "/Users/poojathadani/Library/Developer/Xcode/DerivedData/HeartPartner-dwvraynclxrkdfgtnupvceezmuod/Build/Products/Dev-iphonesimulator/HeartPartner.app");
+		    // This package name of your app (you can get it from apk info app)
+			capabilities.setCapability("bundleId","com.mobiquityinc.HeartPartnerGT"); // This is Launcher activity of your app (you can get it from apk info app)
+		
+	 }
+}
